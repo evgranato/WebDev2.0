@@ -26,7 +26,45 @@ span {
 }
 .post a {
   color: #457b9d;
+  font-weight: 700;
 }
 footer a {
   color: #e63946;
+}
+a {
+  text-decoration: none;
+}
+/* Adjacent selectors: */
+input + button {
+  background-color: pink;
+}
+h2 + button {
+  font-size: 20px;
+  background-color: magenta;
+}
+/* Direct Child:  */
+footer > a {
+  color: darkgreen;
+}
+/* Attribute Selectors: */
+input[type="password"] {
+  color: purple;
+}
+/* Pseudo Classes: */
+.post button:hover {
+  background-color: darkred;
+  color: white;
+}
+a:hover {
+  text-decoration: underline;
+}
+/* DARKEN EVERY OTHER BACKGROUND */
+.post:nth-of-type(2n) {
+  background-color: #dfe8dc;
+}
+h2::first-letter {
+  font-size: 50px;
+}
+p::first-line {
+  color: purple;
 }

@@ -1,3 +1,5 @@
+# THIS IS A COPY OF THE FILE qualQuestions.py from the Python Course Code/Scraping Project FOLDER. WILL ONLY RUN IN THE PYTHON SHELL OVER THERE.
+
 import requests
 from bs4 import BeautifulSoup
 from random import choice
@@ -9,37 +11,33 @@ site = requests.get("https://blog.hubspot.com/sales/16-sales-qualification-quest
 def scrape_quotes():
     soup = BeautifulSoup(site.text, "html.parser")
     org_site = "https://blog.hubspot.com/sales/16-sales-qualification-questions-to-identify-prospects-worth-pursuing"
-    blocks = soup.find_all("h3")
+    blocks = soup.find_all(class_="post-body")
+    something = soup.find_all("h3")
     real_all_info = []
-    for val in blocks:
-        real_all_info.append({
-            "question": val.find("h3").get_text(),
-        })
-
-    count = 1
-    while blocks:
-        pages = soup.find(class_="pager").find("a")["href"][:6:]
-        full_next_url = org_site + pages + str(count)
-        count += 1
-        response = requests.get(str(full_next_url))
-        soup = BeautifulSoup(response.text, "html.parser")
-        blocks = soup.find_all("h3")
-
-        for val in blocks:
+    i = 0
+    # while i < 30:
+    #     blocks = soup.find_all(class_="post-body")
+    #     for val in blocks:
+    #         i += 1
+    #         real_all_info.append({
+    #             "questions": val.find("h3").get_text()
+    #         })
+    while i < 30:
+        for val in something:
+            i += 1
             real_all_info.append({
-                "question": val.find(class_="text").get_text(),
+                "questions": val
             })
     return real_all_info
-
-
-def write_quotes(quotes):
-    with open("qualqs.csv", "w") as file:
-        headers = ["question"]
+def write_quotes(questions):
+    with open("code/Python Testing/qs2.csv", "w") as file:
+        headers = ["questions"]
         csv_writer = DictWriter(file, fieldnames=headers)
         csv_writer.writeheader()
-        for quote in quotes:
-            csv_writer.writerow(quote)
+        for q in questions:
+            csv_writer.writerow(q)
 
-quotes = scrape_quotes()
-write_quotes(quotes)
+questions = scrape_quotes()
+# print(quotes)
+write_quotes(questions)
 	

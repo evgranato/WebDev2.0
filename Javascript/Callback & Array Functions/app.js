@@ -235,6 +235,12 @@ const person = {
   fullName: function () {
     return `${this.firstName} ${this.lastName}`;
   },
+  shoutName: function () {
+    setTimeout(() => {
+      console.log(this);
+      console.log(this.fullName());
+    }, 3000);
+  },
 };
 
 const person2 = {
@@ -244,3 +250,24 @@ const person2 = {
     return `${this.firstName} ${this.lastName}`;
   },
 };
+
+function maximum(arr) {
+  let max = arr.reduce((max, b) => {
+    if (max > b) {
+      return max;
+    } else {
+      return b;
+    }
+  });
+  return max;
+}
+
+const arr = [2, 3, 33, 1, 80];
+
+const highestNum = arr.reduce((max, b) => {
+  if (max > b) {
+    return max;
+  } else {
+    return b;
+  }
+});

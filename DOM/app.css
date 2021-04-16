@@ -1,3 +1,6 @@
-.testClass {
+.testColor {
   color: red;
+}
+.testBorder {
+  border: 1px solid blue;
 }

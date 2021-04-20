@@ -6,14 +6,6 @@ function randNums() {
   return Math.floor(Math.random() * 256) + 1;
 }
 
-// function makeRGB() {
-//   let nums = [];
-//   for (let i = 0; i < 3; i++) {
-//     nums.push(randNums());
-//   }
-//   return `rgb(${nums[0]}, ${nums[1]}, ${nums[2]})`;
-// }
-
 function makeRGB() {
   let nums = [];
   for (let i = 0; i < 3; i++) {

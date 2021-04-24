@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Score Keeper</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="app.css">
+    </head>
+    <body>
+        <div>
+            <img src="https://images.unsplash.com/photo-1576617497557-22895ee5930b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="">
+        </div>
+        <div>
+            <h3>Ping Pong Score Keeper</h3>
+        </div>
+        <div id='append'>
+            <h2> <span id="p1Display">0</span> to <span id="p2Display">0</span></h2>
+            <p>Use the buttons below to keep score</p>
+            <label for="winningScore">Playing To</label>
+            <select name="winningScore" id="winningScore">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            
+            <div id="buttons">
+                <button id="player1">+ Player One</button>
+                <button id="player2">+ Player Two</button>
+                <button id="reset">Reset</button>
+            </div>
+
+        </div>
+        
+        <script src="app.js" async defer></script>
+    </body>
+</html>

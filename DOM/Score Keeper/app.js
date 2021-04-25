@@ -1,86 +1,60 @@
-let scorePlayer1 = 0;
-let scorePlayer2 = 0;
-const winningScore = document.querySelector("select");
-let winScore = 1;
-let gameOver = false;
-winningScore.addEventListener("change", function (e) {
-  let initWinScore = winningScore.value;
-  winScore = parseInt(initWinScore);
-  return winScore;
-});
-console.log(winScore);
+const p1 = {
+  score: 0,
+  button: document.querySelector("#player1"),
+  display: document.querySelector("#p1Display"),
+  name: "Player 1",
+};
+const p2 = {
+  score: 0,
+  button: document.querySelector("#player2"),
+  display: document.querySelector("#p2Display"),
+  name: "Player 2",
+};
 
-const pointPlayer1 = document.querySelector("#player1");
-const pointPlayer2 = document.querySelector("#player2");
+const winningScore = document.querySelector("select");
+let gameOver = false;
+let winScore = 3;
 const reset = document.querySelector("#reset");
-const p1Disp = document.querySelector("#p1Display");
-const p2Disp = document.querySelector("#p2Display");
 const h2 = document.querySelector("h2");
 const newH1 = document.createElement("h1");
 const div = document.querySelector("#append");
 
-pointPlayer1.addEventListener("click", function () {
-  if (!gameOver) {
-    scorePlayer1 += 1;
-    if (scorePlayer1 === winScore) {
-      newH1.innerText = "GAME OVER, Player 1 Wins";
-      div.appendChild(newH1);
-      gameOver = true;
-    }
-    p1Disp.innerText = scorePlayer1;
-  }
-});
-pointPlayer2.addEventListener("click", function () {
-  if (!gameOver) {
-    scorePlayer2 += 1;
-    if (scorePlayer2 === winScore) {
-      newH1.innerText = "Game Over, Player 2 Wins";
-      div.appendChild(newH1);
-      gameOver = true;
-    }
-    p2Disp.innerText = scorePlayer2;
-  }
+winningScore.addEventListener("change", function () {
+  winScore = parseInt(this.value);
+  resetting();
+  return winScore;
 });
 
-reset.addEventListener("click", function () {
+function updateScores(player, opponent) {
+  if (!gameOver) {
+    player.score += 1;
+    if (player.score === winScore) {
+      newH1.innerText = `GAME OVER, ${player.name} wins!`;
+      div.appendChild(newH1);
+      player.button.disabled = true;
+      opponent.button.disabled = true;
+      gameOver = true;
+    }
+    player.display.innerText = player.score;
+  }
+}
+
+p1.button.addEventListener("click", function () {
+  updateScores(p1, p2);
+});
+p2.button.addEventListener("click", function () {
+  updateScores(p2, p1);
+});
+
+reset.addEventListener("click", resetting);
+
+function resetting() {
   gameOver = false;
-  scorePlayer1 = 0;
-  scorePlayer2 = 0;
-  p1Disp.innerText = 0;
-  p2Disp.innerText = 0;
+  p1.score = 0;
+  p2.score = 0;
+  p1.display.innerText = 0;
+  p2.display.innerText = 0;
+  p1.button.disabled = false;
+  p2.button.disabled = false;
   newH1.remove();
-});
-
-// reset.addEventListener("click", addPoint);
-
-// function addPoint(e) {
-//   if (gameOver === false) {
-//     if (e.target.id === "player1") {
-//       if (gameOver === false) {
-//         scorePlayer1 += 1;
-//         p1Disp.innerText = scorePlayer1;
-//         console.log("player 1 point");
-//       } else {
-//         alert("GAME OVER, Player 1 Wins");
-//       }
-//     } else if (e.target.id === "player2") {
-//       if (gameOver === false) {
-//         scorePlayer2 += 1;
-//         p2Disp.innerText = scorePlayer2;
-//         console.log("player 2 point");
-//       } else {
-//         alert("Game Over, Player 2 Wins");
-//       }
-//     } else if (e.target.id === "reset") {
-//       scorePlayer1 = 0;
-//       scorePlayer2 = 0;
-//       p1Disp.innerText = 0;
-//       p2Disp.innerText = 0;
-//       Alert("NEW GAME!");
-//     } else {
-//       console.log("Error (Probably)");
-//     }
-//   } else {
-//     console.log("I'm here");
-//   }
-// }
+}

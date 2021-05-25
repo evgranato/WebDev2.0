@@ -59,7 +59,7 @@
 //   console.log("END OF RAINBOW!");
 // }
 
-const fakeRequestPromise = (url) => {
+const fakeRequest = (url) => {
   return new Promise((resolve, reject) => {
     const delay = Math.floor(Math.random() * 4500) + 500;
     setTimeout(() => {
@@ -73,6 +73,13 @@ const fakeRequestPromise = (url) => {
 };
 
 async function makeTwoRequests() {
-  let data1 = await fakeRequestPromise("/page1");
-  console.log(data1);
+  try {
+    let data1 = await fakeRequest("/page1");
+    console.log(data1);
+    let data2 = await fakeRequest("/page2");
+    console.log(data2);
+  } catch (e) {
+    console.log("ERROR CAUGHT");
+    console.log("Error is:", e);
+  }
 }

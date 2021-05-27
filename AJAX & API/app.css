@@ -1,0 +1,13 @@
+#reaction {
+  height: 500px;
+}
+
+.bad {
+  content: url(https://i2.wp.com/vintagevalueinvesting.com/wp-content/uploads/2015/08/0B3C061100000578-3207258-image-a-1_1440404108838.jpg?resize=634%2C427&ssl=1);
+  height: 500px;
+}
+
+.good {
+  content: url(https://images2.markets.businessinsider.com/5fa55f22f7d1cb0019e3a2d2?format=jpeg);
+  height: 500px;
+}

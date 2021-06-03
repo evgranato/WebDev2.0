@@ -5,3 +5,6 @@ h1 {
 h2 {
   text-align: center;
 }
+body {
+  transition: background-color 1s;
+}

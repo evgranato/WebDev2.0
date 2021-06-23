@@ -169,3 +169,27 @@ class Dog extends Pet {
     return "WOOOF!";
   }
 }
+// const allPet = [];
+
+// const form = document.querySelector("#petForm");
+// const Type = document.querySelector("#petType");
+// const Name = document.querySelector("#petName");
+// const Age = document.querySelector("#petAge");
+
+// form.addEventListener("submit", function (e) {
+//   const form = document.querySelector("#petForm");
+//   const petType = form.elements.petType;
+//   const petName = form.elements.petName;
+//   const petAge = form.elements.petAge;
+//   let allPet0 = [petType.value, petName.value, parseInt(petAge.value)];
+//   let allPet1 = ["Dog", "jack", 10];
+//   console.log(allPet1);
+//   allPet.push(allPet1);
+//   constructIt(allPet);
+//   // const newPet = new petType.value(petName.value, petAge.value);
+// });
+
+// function constructIt(test) {
+//   const newestPet = new Dog(test[1], test[2]);
+//   return newestPet;
+// }

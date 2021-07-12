@@ -1,2 +1,2 @@
-console.log("HELLO FROM ARGS FILE");
-console.log(process.argv);
+const math = require("./math");
+console.log(math);

@@ -1,0 +1,11 @@
+body {
+  text-align: center;
+}
+li {
+  margin: 2em;
+  letter-spacing: 0.5em;
+  list-style-type: none;
+}
+img {
+  height: 250px;
+}

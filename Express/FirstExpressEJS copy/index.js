@@ -24,7 +24,6 @@ app.get("/r/:subreddit", (req, res) => {
     res.render("subreddit", { ...data });
   } else {
     res.render("notFound", { subreddit });
-    console.log(e);
   }
 });
 

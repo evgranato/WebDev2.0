@@ -9,12 +9,12 @@ app.use(express.static(__dirname + "/public"));
 
 let characters = ["mickey", "goofy", "donald", "pluto"];
 app.get("/", (req, res) => {
-  res.render("home", { characters: characters });
+  res.render("home", { characters: characters, name: "Home" });
 });
 
 app.get("/cats", (req, res) => {
   const cats = ["blue", "rocky", "stephanie", "monty", "winston"];
-  res.render("cats", { cats: cats });
+  res.render("cats", { cats: cats, name: "Cats" });
 });
 
 app.get("/r/:subreddit", (req, res) => {
@@ -29,7 +29,7 @@ app.get("/r/:subreddit", (req, res) => {
 
 app.get("/rand", (req, res) => {
   const num = Math.floor(Math.random() * 10) + 1;
-  res.render("random", { rand: num });
+  res.render("random", { rand: num, name: "Random" });
 });
 
 app.listen(3000, () => {

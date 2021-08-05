@@ -2,10 +2,18 @@
 <%- include("../partials/navbar") %>
         <h1>Comments</h1>
 
+        <div class="container-fluid">
+            <img src="https://media.vanityfair.com/photos/608adcbec2b739f0a2a8d9f1/1:1/w_1333,h_1333,c_limit/Donald-Trump.jpg" alt="">
+
+        </div>
+
         <% for(let comm of comments) { %>
            <li><a style="color: black" href="/comments/<%=comm.id%>"> <%= comm.comment %> - <b> <%= comm.username %> </b></a></li>
             <%}%>
+            <br>
 
-            <a href="/comments/new">NEW COMMENT</a>
+            <form action="/comments/new">
+                <button class="btn btn-outline-primary" type="submit">New Comment</button>
+            </form>
         
             <%- include("../partials/footer") %>

@@ -1,24 +1,11 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Comments Index</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
         <h1>Comments</h1>
 
         <% for(let comm of comments) { %>
-           <p> <%= comm.comment %> - <b> <%= comm.username %> </b></p>
+           <li><a style="color: black" href="/comments/<%=comm.id%>"> <%= comm.comment %> - <b> <%= comm.username %> </b></a></li>
             <%}%>
+
+            <a href="/comments/new">NEW COMMENT</a>
         
-        <script src="" async defer></script>
-    </body>
-</html>
+            <%- include("../partials/footer") %>

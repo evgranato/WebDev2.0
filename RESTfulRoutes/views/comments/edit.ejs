@@ -1,0 +1,16 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+        
+        <h1>Edit A Comment</h1>
+        <form  action="/comments/<%= comment.id %>?_method=PATCH" method="post">
+        <section>
+            <label for="comment">Edit Comment:</label>
+            <br>
+            <textarea type="text" placeholder="" id="comment" name="comment" cols="30" rows="5"><%= comment.comment %></textarea>
+        </section>
+        <button class="btn btn-outline-success">Submit</button>
+
+        </form>
+        <a href="/comments">BACK</a>
+        
+        <%- include("../partials/footer") %>

@@ -27,10 +27,12 @@ Movie.insertMany([
     {title: 'Stand By Me', year: 1986, score: 8.6, rating: 'R'},
     {title: 'Moonrise Kingdom', year: 2012, score: 7.3, rating: 'PG-13'}
 ])
-.then(() => {
+.then(data => {
     console.log("Uploaded")
+    console.log(data)
 })
 .catch( err => {
     console.log("Something Went Wrong")
     console.log(err)
 })
+ß

@@ -20,19 +20,25 @@ const movieSchema = new mongoose.Schema({
 const Movie = mongoose.model("Movie", movieSchema);
 // Mongoose will make a collection called "movies"
 
-Movie.insertMany([
-    {title: 'Amelie', year: 2001, score: 8.3, rating: 'R'},
-    {title: 'Alien', year: 1979, score: 8.1, rating: 'R'},
-    {title: 'The Iron Giant', year: 1999, score: 7.5, rating: 'PG'},
-    {title: 'Stand By Me', year: 1986, score: 8.6, rating: 'R'},
-    {title: 'Moonrise Kingdom', year: 2012, score: 7.3, rating: 'PG-13'}
-])
-.then(data => {
-    console.log("Uploaded")
-    console.log(data)
-})
-.catch( err => {
-    console.log("Something Went Wrong")
-    console.log(err)
-})
-ß
+// Movie.insertMany([
+//     {title: 'Amelie', year: 2001, score: 8.3, rating: 'R'},
+//     {title: 'Alien', year: 1979, score: 8.1, rating: 'R'},
+//     {title: 'The Iron Giant', year: 1999, score: 7.5, rating: 'PG'},
+//     {title: 'Stand By Me', year: 1986, score: 8.6, rating: 'R'},
+//     {title: 'Moonrise Kingdom', year: 2012, score: 7.3, rating: 'PG-13'}
+// ])
+// .then(data => {
+//     console.log("Uploaded")
+//     console.log(data)
+// })
+// .catch( err => {
+//     console.log("Something Went Wrong")
+//     console.log(err)
+// })
+
+Movie.findOne({'movie.title': 'Moonrise Kingdom'}, 'title year score rating', function(err, movie) {
+    if (err) {
+        console.log(err)
+    };
+    console.log('%s was made in %s, has a score of %s and is rated %s', movie.title, movie.year, movie.score, movie.rating)
+});

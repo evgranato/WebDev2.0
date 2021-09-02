@@ -1,4 +1,8 @@
 const mongoose = require('mongoose');
+const express = require('express')
+const app = express();
+app.set('view engine', 'ejs')
+
 mongoose.connect('mongodb://localhost:27017/movieApp', {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
         console.log("Connection Open!!!")
@@ -36,7 +40,7 @@ const Movie = mongoose.model("Movie", movieSchema);
 //     console.log(err)
 // })
 
-Movie.findOne({'movie.title': 'Moonrise Kingdom'}, 'title year score rating', function(err, movie) {
+Movie.findOne({ title: 'Alien'}, 'title year score rating', function(err, movie) {
     if (err) {
         console.log(err)
     };

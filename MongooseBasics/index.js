@@ -40,9 +40,9 @@ const Movie = mongoose.model("Movie", movieSchema);
 //     console.log(err)
 // })
 
-Movie.findOne({ title: 'Alien'}, 'title year score rating', function(err, movie) {
-    if (err) {
-        console.log(err)
-    };
-    console.log('%s was made in %s, has a score of %s and is rated %s', movie.title, movie.year, movie.score, movie.rating)
-});
+// Movie.findOne({ title: 'Alien'}, 'title year score rating', function(err, movie) {
+//     if (err) {
+//         console.log(err)
+//     };
+//     console.log('%s was made in %s, has a score of %s and is rated %s', movie.title, movie.year, movie.score, movie.rating)
+// });
